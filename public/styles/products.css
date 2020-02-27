@@ -1,0 +1,153 @@
+/* ========== PRODUCT VIEW ========== */
+
+.product-single .card-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.gallery {
+    width: 100%;
+}
+
+.gallery-highlight {
+    margin-bottom: 8px;
+}
+
+.gallery-highlight > img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border: 1x solid white;
+    cursor: zoom-in;
+}
+
+.gallery-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.gallery-preview img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.gallery-preview img:hover {
+    transition: 250ms;
+    opacity: 1;
+}
+
+.gallery-preview .active-image {
+    transition: 250ms;
+    opacity: 1;
+}
+
+.lightbox-gallery {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    z-index: 100;
+    top: -100%;
+    left: 0;
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.lightbox-img-container {
+    position: absolute;
+    background-color: whitesmoke;
+    height: 90%;
+    max-width: 980px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+}
+
+.lightbox-img-container img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.lightbox-close {
+    position: relative;
+    top: -80px;
+    text-align: right;
+    margin-top: 4px;
+    margin-right: 4px;
+    opacity: 0;
+    transition: 1000ms;
+}
+
+.lightbox-close i {
+    font-size: 40px;
+    color: orange;
+}
+
+.show-info-product {
+    display: grid;
+    grid-template-rows: auto 40px 3fr 1fr;
+}
+
+.title-product {
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.published-date {
+    color: gray;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+}
+
+.price-and-buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    padding: 24px 16px 16px;
+    margin-top: auto;
+}
+
+.atual-price {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: lightgray;
+    font-size: 14px;
+}
+
+.unavailable {
+    background-color: lightgray;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    border-radius: 4px;
+    padding: 12px 16px;
+    width: 100%;
+    align-self: end;
+}

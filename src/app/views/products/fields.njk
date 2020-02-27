@@ -1,0 +1,56 @@
+<section class="fields">
+    <div class="item">
+        <p class="item-title">Categoria</p>
+        <select name="category" class="item-info">
+        {% for category in categories %}
+            <option value="{{category.id}}" {% if product.category_id == category.id %} selected {% endif %}>{{category.name}}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="item">
+        <p class="item-title">Produto</p>
+        <input type="text" name="name" class="item-info" placeholder="Digite o nome do produto" value="{{product.name}}">
+    </div>
+    <div class="item">
+        <p class="item-title">Descrição</p>
+        <textarea name="description" class="item-info">{{product.description}}</textarea>
+    </div>
+    <div class="item">
+        <p class="item-title">Fotos</p>
+        <div class="image-upload">
+            <input class="image-input" type="file" name="images" multiple accept="image/*" onchange="photosUpload.handleFileInput(event)">
+            <p class="image-upload-text">Selecione até 6 imagens</p>
+        </div>
+        <div class="image-preview">
+            {% if product.files %}
+                {% for image in product.files %}
+                    <div class="image" id={{image.id}}>
+                        <img src="{{image.src}}" alt="{{image.name}}">
+                        <i class="material-icons" onclick="photosUpload.removeOldImage(event)">close</i>
+                    </div>
+                {% endfor %}
+                <input type="hidden" name="removed_files">
+            {% endif %}
+        </div>
+    </div>
+    <div class="item">
+        <p class="item-title">Preço</p>
+        <input type="text" name="price" class="item-info" value="{{product.formattedPrice}}" onkeydown="mask.apply(this, 'formatBRL')">
+    </div>
+    {% if product.old_price %}
+        <input type="hidden" name="old_price" value="{{product.old_price}}">
+    {% endif %}
+    <div class="item">
+        <p class="item-title">Quantidade</p>
+        <input type="number" name="quantity" class="item-info" placeholder="Estoque disponível" value="{{product.quantity}}">
+    </div>
+    {% if (product.status == 1) or (product.status == 0) %}
+        <div class="item">
+            <p class="item-title">Status</p>
+            <div class="content-radio-inputs">
+                <span class="span-item-info"><input type="radio" name="status" class="input-item-info" value="1" {% if product.status == "1" %} checked {% endif %}>Disponível</span>
+                <span class="span-item-info"><input type="radio" name="status" class="input-item-info" value="0" {% if product.status == "0" %} checked {% endif %}>Indisponível</span>
+            </div>              
+        </div>
+    {% endif %}
+</section>

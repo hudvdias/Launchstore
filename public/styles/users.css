@@ -1,0 +1,94 @@
+/* ========== USER REGISTER ========== */
+
+.item-info[name="password"],
+.item-info[name="passwordConfirm"],
+.item-info[name="cpf_cnpj"],
+.item-info[name="cep"] {
+    max-width: 50%;
+}
+
+.item-info-login {
+    width: 100%;
+    padding: 8px 16px;
+    box-shadow: 2px 2px 2px -4px rgba(0, 0, 0, 0.5);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    font-size: 16px;
+    color: dimgray;
+}
+
+.item-info-login::placeholder {
+    color: silver;
+}
+
+.mail-error {
+    font-weight: bold;
+    color: red;
+    margin-top: 8px;
+}
+
+/* ========== USER DETAILS ========== */
+
+.card.details {
+    max-width: 640px;
+}
+
+/* ========== USERS ADS LIST ========== */
+
+.user-ads .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 16px 0;
+}
+
+.user-ads .item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    align-items: start;
+    color: dimgray;
+}
+
+.user-ads .item .image {
+    width: 100px;
+    height: 100px;
+}
+
+.user-ads .item img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 0px lightgray;
+}
+
+.user-ads .item .infos {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+}
+
+.user-ads .item .edit {
+    display: flex;
+    margin-top: auto;
+}
+
+.user-ads .item .title {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.user-ads .item .price {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.user-ads .item .published {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.user-ads .item .edit {
+    color: orange;
+    font-weight: bold;
+}

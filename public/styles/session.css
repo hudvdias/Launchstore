@@ -1,0 +1,39 @@
+.card.login {
+    max-width: 600px;
+}
+
+.item-login {
+    margin-bottom: 16px;
+}
+
+.item-info-login {
+    width: 100%;
+    padding: 8px 16px;
+    box-shadow: 2px 2px 2px -4px rgba(0, 0, 0, 0.5);
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    font-size: 16px;
+    color: dimgray;
+}
+
+.fields-login:last-child {
+    margin-bottom: 40px;
+}
+
+.footer-login {
+    margin-top: 28px;
+}
+
+.footer-login ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-login ul li a {
+    color: gray;
+}
+
+.footer-login ul li a:hover {
+    color: dimgray;
+    font-weight: bold;
+}

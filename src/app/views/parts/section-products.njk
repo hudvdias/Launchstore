@@ -1,0 +1,18 @@
+{% macro products(name, products) %}
+    {% if name %}
+        <p class="page-title">{{name}}</p>
+    {% endif %}
+    <div class="home-last-products">
+        {% for product in products %}
+            <div class="last-product">
+                <img class="last-product-image" src="{{product.img if product.img else '//placehold.it/500x500'}}" alt="{{product.name}}">
+                {% if product.formattedOldPrice > product.formattedPrice %}
+                    <p class="last-product-oldprice">{{product.formattedOldPrice}}</p>
+                {% endif %}
+                <p class="last-product-price">{{product.formattedPrice}}</p>
+                <p class="last-product-name">{{product.name}}</p>
+                <a href="/products/{{product.id}}" class="button">Visualizar</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

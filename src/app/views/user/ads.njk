@@ -1,0 +1,26 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+{% block head %}
+    <title>Launchstore - Meus Anúncios</title>
+{% endblock %}
+{% block content %}
+    {% call card.render("Meus Anúncios", "user-ads") %}
+        <div class="items">
+            {% for product in products %}
+                <div class="item">
+                    <div class="image">
+                        <a href="/products/{{product.id}}">
+                            <img src="{{product.img}}" alt="{{product.name}}">
+                        </a>
+                    </div>
+                    <div class="infos">
+                        <p class="title">{{product.name}}</p>
+                        <p class="price">{{product.formattedPrice}}</p>
+                        <p class="published">Publicado em {{product.published}}</p>
+                        <a class="edit" href="/products/{{product.id}}/edit">Editar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endcall %}
+{% endblock %}

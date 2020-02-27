@@ -1,0 +1,24 @@
+{% extends "layout.njk" %}
+{% block head %}
+    <title>Launchstore - Busca por "{{search.term}}"</title>
+{% endblock %}
+{% import "parts/section-products.njk" as section %}
+{% block content %}
+    <section class="content search-content">
+        <aside>
+            <div class="header-aside">
+                <p class="search-term">{{search.term}}</p>
+                <p class="search-results-number">{{search.total}} encontrados</p>
+            </div>
+            <nav class="aside-categories">
+                <p class="aside-categories-title">Categorias</p>
+                <ul>
+                    {% for category in categories %}
+                        <li><a href="/products/search?filter={{search.term}}&category={{category.id}}">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </aside>
+        {{section.products("", products)}}
+    </section>
+{% endblock %}

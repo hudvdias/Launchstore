@@ -1,0 +1,15 @@
+<section class="fields-login">
+    <div class="item-login">
+        <p class="item-title">E-mail</p>
+        <input type="email" name="email" class="item-info-login" placeholder="Digite seu e-mail" value="{{user.email}}" onblur="validate.apply(this, 'isEmail')">
+    </div>
+    <div class="item-login">
+        <p class="item-title">Nova Senha</p>
+        <input type="password" name="password" class="item-info-login" placeholder="Digite uma nova senha">
+    </div>
+    <div class="item-login">
+        <p class="item-title">Repetir Senha</p>
+        <input type="password" name="passwordRepeat" class="item-info-login" placeholder="Repita a nova senha">
+    </div>
+    <input type="hidden" name="token" value="{{token}}">
+</section>

@@ -1,0 +1,32 @@
+<section class="fields">
+    <div class="item">
+        <p class="item-title">Nome Completo</p>
+        <input type="text" name="name" class="item-info" placeholder="Digite seu nome" value="{{user.name}}" required>
+    </div>
+    <div class="item">
+        <p class="item-title">E-mail</p>
+        <input type="email" name="email" class="item-info" placeholder="Digite seu e-mail" value="{{user.email}}" onblur="validate.apply(this, 'isEmail')" required>
+    </div>
+    <div class="item">
+        <p class="item-title">Senha</p>
+        <input type="password" name="password" class="item-info" {% if not user.id %} placeholder="Digite uma senha" {% else %} placeholder="Digite sua senha para prosseguir" {% endif %} required>
+    </div>
+    {% if not user.id %}
+        <div class="item">
+            <p class="item-title">Confirmar Senha</p>
+            <input type="password" name="passwordConfirm" class="item-info" placeholder="Confirme a sua senha" required>
+        </div>
+    {% endif %}
+    <div class="item">
+        <p class="item-title">CPF ou CNPJ</p>
+        <input type="text" name="cpf_cnpj" class="item-info" placeholder="Insira o número do documento" value="{{user.cpf_cnpj}}" onkeydown="mask.apply(this, 'cpfCnpj')" onblur="validate.apply(this, 'isCpfCnpj')" required>
+    </div>
+    <div class="item">
+        <p class="item-title">CEP</p>
+        <input type="text" name="cep" class="item-info" placeholder="Digite seu cep. Ex:99999-555" value="{{user.cep}}" onkeydown="mask.apply(this, 'cep')" onblur="validate.apply(this, 'isCep')" required>
+    </div>
+    <div class="item">
+        <p class="item-title">Endereço</p>
+        <input type="text" name="address" class="item-info" placeholder="Digite seu endereço. Ex: Rua Launchstore, n 22, Itaboraí - RJ" value="{{user.address}}" required>
+    </div>
+</section>

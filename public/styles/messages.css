@@ -1,0 +1,31 @@
+@keyframes hidemessage {
+    to {
+        top: -25px;
+        opacity: 0;
+    }
+}
+
+.error-message {
+    background-color: red;
+    color: whitesmoke;
+    position: fixed;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    top: 0px;
+    opacity: 1;
+    animation: hidemessage 500ms 5s ease-out forwards;
+}
+
+.success-message {
+    background-color: lawngreen;
+    color: black;
+    font-weight: bold;
+    position: fixed;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    top: 0px;
+    opacity: 1;
+    animation: hidemessage 500ms 5s ease-out forwards;
+}

@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+{% block head %}
+    <title>Launchstore - Editar Anúncio</title>
+{% endblock %}
+{% block content %}
+    {% call card.render("Editar Produto", "details") %}
+        <form action="/products?_method=PUT" method="post" enctype="multipart/form-data">
+            <div class="fields">
+                {% include "products/fields.njk" %}
+                <input type="hidden" name="id" value="{{product.id}}">
+            </div>
+            <button type="submit" class="button edit">Atualizar</button>
+        </form>
+        <form id="delete-form" action="/products?_method=DELETE" method="post">
+        <input type="hidden" name="id" value="{{product.id}}">
+        <button type="submit" class="button delete">Deletar</button>
+        </form>
+    {% endcall %}
+    <script>
+        const formDelete = document.querySelector("#delete-form")
+        formDelete.addEventListener("submit", function(event) {
+            const confirmation = confirm("Realmente deseja deletar o produto?")
+            if(!confirmation) event.preventDefault()
+        })
+    </script>
+{% endblock %}

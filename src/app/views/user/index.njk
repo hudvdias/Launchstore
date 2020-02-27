@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+{% block head %}
+    <title>Launchstore - {{user.name}}</title>
+{% endblock %}
+{% block content %}
+    {% call card.render("Detalhes", "details") %}
+            <form action="/users?_method=PUT" method="post">
+                <div class="fields">
+                    {% include "user/fields.njk" %}
+                    <input type="hidden" name="id" value="{{user.id}}">
+                </div>
+                <button type="submit" class="button edit">Atualizar</button>
+            </form>
+            <form id="delete-form" action="/users?_method=DELETE" method="post">
+            <input type="hidden" name="id" value="{{user.id}}">
+            <button type="submit" class="button delete">Deletar</button>
+            </form>
+    {% endcall %}
+    <script>
+        const formDelete = document.querySelector("#delete-form")
+        formDelete.addEventListener("submit", function(event) {
+            const confirmation = confirm("Tem certeza que deseja exluir sua conta? Essa operação não poderá ser desfeita.")
+            if(!confirmation) event.preventDefault()
+        })
+    </script>
+{% endblock %}

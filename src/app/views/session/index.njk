@@ -1,0 +1,25 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+{% block head %}
+    <title>Launchstore - Login</title>
+{% endblock %}
+{% block content %}
+    {% call card.render("Login", "login") %}
+        <form action="/users/login" method="post">
+            <div class="fields">
+                {% include "session/fields.njk" %}
+            </div>
+            <button type="submit" class="button">Entrar</button>
+            <div class="footer-login">
+                <ul>
+                    <li>
+                        <a href="/users/register">Registre-se</a>
+                    </li>
+                    <li>
+                        <a href="/users/forgot-password">Esqueci a senha</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    {% endcall %}
+{% endblock %}

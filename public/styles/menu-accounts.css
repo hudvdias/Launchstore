@@ -1,0 +1,42 @@
+.accounts {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 150px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px -2px gray;
+    transition: 500ms;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.submenu li a,
+.submenu li button {
+    display: inline-block;
+    color: gray;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-top: 1px solid gray;
+    width: 100%;
+    background-color: white;
+    transition: 250ms;
+    border-radius: 4px;
+}
+
+.submenu li a:hover,
+.submenu li button:hover {
+    background-color: whitesmoke;
+    font-weight: bold;
+}
+
+.accounts:hover .submenu {
+    top: 32px;
+    opacity: 1;
+    visibility: initial;
+}

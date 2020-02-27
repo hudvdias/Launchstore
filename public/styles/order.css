@@ -1,0 +1,21 @@
+.order {
+    padding: 0;
+    padding-bottom: 40px;
+    text-align: center;
+    margin: auto;
+    line-height: 40px;
+}
+
+.success-lottie {
+    height: 160px;
+}
+
+.error-lottie {
+    height: 136;
+}
+
+.order a {
+    font-weight: bold;
+    color: orange;
+    font-size: 18px;
+}

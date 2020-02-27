@@ -1,0 +1,18 @@
+.card {
+    background-color: white;
+    padding: 32px 24px;
+    margin: 32px auto;
+    box-shadow: 0px 0px 4px 0px lightgray;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 940px;
+}
+
+.card-header h1 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 32px;
+    text-align: center;
+}

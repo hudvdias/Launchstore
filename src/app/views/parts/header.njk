@@ -1,0 +1,38 @@
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="/">
+                <h1>Launchstore</h1>
+                <h2>Compra e venda</h2>
+            </a>
+        </div>
+        <form action="/products/search" method="get">
+            <input type="text" name="filter" class="search" placeholder="Buscar produtos" {% if search.term %} value="{{search.term}}" {% endif %} >
+        </form>
+        <nav class="primary">
+            <ul class="header-menu">
+                <li>
+                    <a href="/ads/create" class="header-menu-link"><i class="material-icons">add</i>Novo Anúncio</a>
+                </li>
+                <li class="accounts">
+                    <a href="/accounts" class="header-menu-link"><i class="material-icons">account_circle</i>Minha Conta</a>
+                    {% if session.userId %}
+                        <ul class="submenu">
+                            <li>
+                                <a href="/users">Meus Dados</a>
+                            </li>
+                            <li>
+                                <a href="/users/ads">Meus Anúncios</a>
+                            </li>
+                            <li>
+                                <form action="/users/logout" method="POST">
+                                    <button>Sair</button>
+                                </form>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

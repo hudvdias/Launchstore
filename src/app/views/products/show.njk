@@ -1,0 +1,60 @@
+{% extends "layout.njk" %}
+{% import "parts/card.njk" as card %}
+{% block head %}
+    <title>Launchstore - {{product.name}}</title>
+{% endblock %}
+{% block content %}
+    {% call card.render("", "product-single") %}
+        <div class="gallery">
+            <div class="gallery-highlight" >
+                {% if not product.files[0] %}
+                    <img src="http://placehold.it/500x500?text=PRODUTO SEM IMAGEM">
+                {% else %}
+                    <img src="{{product.files[0].src}}" alt="{{product.files[0].name}}" onclick="Lightbox.open()">
+                {% endif %}
+                <div class="lightbox-gallery">
+                    <div class="lightbox-img-container">
+                        <a href="#" class="lightbox-close" onclick="Lightbox.close()">
+                            <i class="material-icons">close</i>
+                        </a>
+                        <img src="{{product.files[0].src}}" alt="{{product.files[0].name}}">
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-preview">
+                {% for image in product.files %}
+                    <img src="{{image.src}}" alt="{{image.name}}" {% if loop.index0 == 0 %} class="active-image" {% endif %} onclick="ImageGallery.setImage(event)">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="show-info-product">
+            <h1 class="title-product">{{product.name}}</h1>
+            <p class="published-date">Publicado em {{product.published}}</p>
+            <p class="description">{{product.description}}</p>
+            <div class="price-and-buy">
+                <div class="price">
+                    {% if product.formattedOldPrice > product.formattedPrice %}
+                        <p class="old-price">{{product.formattedOldPrice}}</p>
+                    {% endif %}
+                    <p class="atual-price">{{product.formattedPrice}}</p>
+                </div>
+                <div class="buy">
+                    {% if (session.userId) and (product.user_id == session.userId) %}
+                        <a class="button" href="/products/{{product.id}}/edit">Editar</a>
+                    {% else %}
+                        {% if product.status == 0 %}
+                            <p class="unavailable">Indisponível</p>
+                        {% elseif product.quantity <= 0 %}
+                            <p class="unavailable">Indisponível</p>
+                        {% else %}
+                            <form action="/users/orders" method="post">
+                                <input type="hidden" name="id" value="{{product.id}}">
+                                <button type="submit" class="button">Comprar</button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endcall %}
+{% endblock %}
