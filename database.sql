@@ -1,5 +1,7 @@
+-- first, create a database
 CREATE DATABASE "launchstoredb";
 
+-- next, execute the code below
 CREATE TABLE "products" (
     "id" SERIAL PRIMARY KEY,
     "category_id" integer NOT NULL,

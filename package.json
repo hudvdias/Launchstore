@@ -1,7 +1,7 @@
 {
   "name": "launchstore",
   "version": "1.0.0",
-  "description": "Site para o bootcamp Launchbase, da Rocketseat.",
+  "description": "Site construído durante o bootcamp Launchbase, da Rocketseat.",
   "main": "server.js",
   "scripts": {
     "debug": "nodemon --inspect=0.0.0.0:9229 src/server.js",

@@ -30,7 +30,7 @@ routes.delete("/", userController.delete)
 // user ads list
 routes.get("/ads", userController.ads)
 
-//orders
+// orders
 routes.post("/orders", onlyUsers, orderController.post)
 
 module.exports = routes

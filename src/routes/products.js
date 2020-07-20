@@ -7,10 +7,8 @@ const multer = require("../app/middlewares/multer")
 const {onlyUsers} = require("../app/middlewares/session")
 const validator = require("../app/validators/product")
 
-// Search
 routes.get("/search", searchController.index)
 
-//Products
 routes.get("/create", onlyUsers, productsController.create)
 routes.get("/:id", productsController.show)
 routes.get("/:id/edit", onlyUsers, productsController.edit)
