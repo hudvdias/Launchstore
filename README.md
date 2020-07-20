@@ -47,7 +47,7 @@ Em breve.
 $ git clone https://github.com/hudvdias/launchstore.git
 ```
 
-#### 👨‍💻 Servidor
+#### 🗃 Banco de dados
 
 *Para utilizar o banco de dados, você deve ter o [PostgreSQL](https://www.postgresql.org/) e o [Postbird](https://www.electronjs.org/apps/postbird) instalados na sua máquina.*
 
