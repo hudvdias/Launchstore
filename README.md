@@ -1,4 +1,4 @@
-# Launchstore
+# 🚀 Launchstore
 
 #### Projeto construído durante o bootcamp Launchbase, da Rocketseat.
 
